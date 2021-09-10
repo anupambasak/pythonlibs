@@ -1,0 +1,65 @@
+{% set name = "py_vollib" %}
+{% set version = "1.0.1" %}
+
+package:
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
+
+source:
+  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
+  sha256: 36e752eee16dcf52994c42aaf5372f0ab9cfd0d2aedc5462c4c1b6123c9ecf20
+
+build:
+  noarch: python
+  number: 0
+  script: "{{ PYTHON }} -m pip install . -vv"
+
+requirements:
+  host:
+    - numpy
+    - pandas
+    - pip
+    - py_lets_be_rational
+    - python >=3.8
+    - scipy
+    - simplejson
+  run:
+    - numpy
+    - pandas
+    - py_lets_be_rational
+    - python >=3.8
+    - scipy
+    - simplejson
+
+test:
+  imports:
+    - py_vollib
+    - py_vollib.black
+    - py_vollib.black.greeks
+    - py_vollib.black_scholes
+    - py_vollib.black_scholes.greeks
+    - py_vollib.black_scholes_merton
+    - py_vollib.black_scholes_merton.greeks
+    - py_vollib.helpers
+    - py_vollib.ref_python
+    - py_vollib.ref_python.black
+    - py_vollib.ref_python.black.greeks
+    - py_vollib.ref_python.black_scholes
+    - py_vollib.ref_python.black_scholes.greeks
+    - py_vollib.ref_python.black_scholes_merton
+    - py_vollib.ref_python.black_scholes_merton.greeks
+    - tests
+    - tests.test_ref_python
+
+about:
+  home: "http://vollib.org"
+  license: MIT
+  license_family: MIT
+  license_file: 
+  summary: ""
+  doc_url: 
+  dev_url: 
+
+extra:
+  recipe-maintainers:
+    - your-github-id-here

@@ -1,0 +1,53 @@
+{% set name = "yfinance" %}
+{% set version = "0.1.63" %}
+
+package:
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
+
+source:
+  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
+  sha256: 11364fe94f1cf7811c45fc620acb61c8c45fcb88de317c7718bbdbc9c1573a4c
+
+build:
+  noarch: python
+  number: 0
+  entry_points:
+    - sample=sample:main
+  script: "{{ PYTHON }} -m pip install . -vv"
+
+requirements:
+  host:
+    - lxml >=4.5.1
+    - multitasking >=0.0.7
+    - numpy >=1.15
+    - pandas >=0.24
+    - pip
+    - python >=3.8
+    - requests >=2.20
+  run:
+    - lxml >=4.5.1
+    - multitasking >=0.0.7
+    - numpy >=1.15
+    - pandas >=0.24
+    - python >=3.8
+    - requests >=2.20
+
+test:
+  imports:
+    - yfinance
+  commands:
+    - sample --help
+
+about:
+  home: "https://github.com/ranaroussi/yfinance"
+  license: Apache Software
+  license_family: APACHE
+  license_file: 
+  summary: "Yahoo! Finance market data downloader"
+  doc_url: 
+  dev_url: 
+
+extra:
+  recipe-maintainers:
+    - your-github-id-here

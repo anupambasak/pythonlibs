@@ -1,0 +1,49 @@
+{% set name = "smartapi-python" %}
+{% set version = "1.2.9" %}
+
+package:
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
+
+source:
+  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
+  sha256: 9c1bd42cf898d08f25efd35e439ea8b539e807c7e18bdba59a3cae670f98c260
+
+build:
+  noarch: python
+  number: 0
+  script: "{{ PYTHON }} -m pip install . -vv"
+
+requirements:
+  host:
+    - pip
+    - python >=3.8
+    - python-dateutil >=2.6.1
+    - requests >=2.18.4
+    - six >=1.11.0
+    - twisted
+    - websocket-client
+  run:
+    - python >=3.8
+    - python-dateutil >=2.6.1
+    - requests >=2.18.4
+    - six >=1.11.0
+    - twisted
+    - websocket-client
+
+test:
+  imports:
+    - smartapi
+
+about:
+  home: "https://github.com/angelbroking-github/smartapi-python"
+  license: UNKNOWN
+  license_family: OTHER
+  license_file: 
+  summary: "Angel Broking openApi integration"
+  doc_url: 
+  dev_url: 
+
+extra:
+  recipe-maintainers:
+    - your-github-id-here

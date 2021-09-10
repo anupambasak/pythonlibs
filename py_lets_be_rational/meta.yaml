@@ -1,0 +1,41 @@
+{% set name = "py_lets_be_rational" %}
+{% set version = "1.0.1" %}
+
+package:
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
+
+source:
+  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
+  sha256: 0e0788a4109e102a666f26d67276c0d3c2feb8a059e788354a90e565f2db0ed2
+
+build:
+  noarch: python
+  number: 0
+  script: "{{ PYTHON }} -m pip install . -vv"
+
+requirements:
+  host:
+    - numpy
+    - pip
+    - python >=3.8
+  run:
+    - numpy
+    - python >=3.8
+
+test:
+  imports:
+    - py_lets_be_rational
+
+about:
+  home: "http://jaeckel.org"
+  license: MIT
+  license_family: MIT
+  license_file: 
+  summary: "Pure python implementation of Peter Jaeckel's LetsBeRational."
+  doc_url: 
+  dev_url: 
+
+extra:
+  recipe-maintainers:
+    - your-github-id-here
