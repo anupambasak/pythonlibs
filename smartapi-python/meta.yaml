@@ -7,7 +7,7 @@ package:
 
 source:
   url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
-  sha256: 9c1bd42cf898d08f25efd35e439ea8b539e807c7e18bdba59a3cae670f98c260
+    #sha256: 9c1bd42cf898d08f25efd35e439ea8b539e807c7e18bdba59a3cae670f98c260
 
 build:
   noarch: python
@@ -36,7 +36,7 @@ test:
     - smartapi
 
 about:
-  home: "https://github.com/angelbroking-github/smartapi-python"
+  home: "https://github.com/angel-one/smartapi-python.git"
   license: UNKNOWN
   license_family: OTHER
   license_file: 
